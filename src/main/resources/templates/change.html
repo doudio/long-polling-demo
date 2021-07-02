@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>change</title>
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		body {
+			padding: 5% 15%;
+		}
+	</style>
+</head>
+<body>
+
+	<div>
+		<div class="form-group">
+			<label for="inputDataId">dataId</label>
+			<input type="text" class="form-control" id="inputDataId" aria-describedby="emailHelp" value="longPolling">
+		</div>
+		<div class="form-group">
+			<label for="inputData">data</label>
+			<input type="text" class="form-control" id="inputData">
+		</div>
+		<button type="submit" class="btn btn-primary submit">Submit</button>
+	</div>
+
+	<script type="text/javascript">
+		$(".submit").click(function(){
+			$.ajax({
+				url: 'http://localhost:8080/publish',
+				type: "GET",
+				data:{
+					dataId: $("#inputDataId").val(),
+					data: $("#inputData").val()
+				},
+			  	timeout: 30000,
+				success: function(data) {
+					alert(data);
+				}, error: function(xhr,textStatus){
+					console.log('error:'+textStatus);
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>

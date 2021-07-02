@@ -1,0 +1,10 @@
+spring:
+  thymeleaf:
+    cache: false
+    check-template-location: true
+    enabled: true
+    mode: LEGACYHTML5
+    prefix: classpath:/templates/
+    servlet:
+      content-type: text/html
+    suffix: .html
