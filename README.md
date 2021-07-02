@@ -1,7 +1,7 @@
 # long-polling-demo
 
 #### 介绍
-long-polling 长轮询 Demo
+logpolling 长轮询 Demo
 
 > 启动 SpringBoot
 
